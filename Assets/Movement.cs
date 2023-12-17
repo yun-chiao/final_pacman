@@ -19,5 +19,13 @@ void Update()
         transform.Translate(movement * speed * Time.deltaTime);
     }
 }
+      void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ghost"))
+        {
+            // 遊戲結束的相應處理，例如顯示遊戲結束畫面或重置遊戲
+            Debug.Log("Game Over");
+        }
+    }
 }
 
