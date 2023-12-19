@@ -6,6 +6,14 @@ public class Movement : MonoBehaviour
 {
 
 public float speed = 2;
+private Rigidbody rb;
+
+void Start()
+{
+    rb = GetComponent<Rigidbody>();
+    rb.constraints = RigidbodyConstraints.FreezePositionY; // 凍結 Y 軸上下移動
+    rb.freezeRotation = true;
+}
 void Update()
 {
     float x = Input.GetAxis("Horizontal");
@@ -21,13 +29,13 @@ void Update()
         transform.Translate(movement * speed * Time.deltaTime);
     }
 }
-      void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Ghost"))
+        if (collision.gameObject.CompareTag("Pacman"))
         {
-            // 遊戲結束的相應處理，例如顯示遊戲結束畫面或重置遊戲
             Debug.Log("Game Over");
         }
     }
+
 }
 

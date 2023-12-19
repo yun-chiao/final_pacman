@@ -73,12 +73,13 @@ public class Ghost_Movement : MonoBehaviour
         // 確保物體到達目標位置
         transform.position = targetPosition;
     }
-    void OnTriggerEnter(Collider other)
+
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Pacman"))
+        if (collision.gameObject.CompareTag("Pacman"))
         {
-            // 遊戲結束的相應處理，例如顯示遊戲結束畫面或重置遊戲
             Debug.Log("Game Over");
         }
     }
+
 }
