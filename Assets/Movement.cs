@@ -31,9 +31,13 @@ void Update()
 }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Pacman"))
+        if (collision.gameObject.CompareTag("Ghost"))
         {
             Debug.Log("Game Over");
+        }
+        else if (collision.gameObject.CompareTag("Coin"))
+        {
+            Debug.Log("Eat coin");
         }
     }
 
