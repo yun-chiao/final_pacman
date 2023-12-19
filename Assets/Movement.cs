@@ -12,10 +12,12 @@ void Update()
     float z = Input.GetAxis("Vertical");
     if(x!=0){
         Vector3 movement = new Vector3(x, 0, 0);
+        movement = Camera.main.transform.TransformDirection(movement);
         transform.Translate(movement * speed * Time.deltaTime);
     }
     else if(z!=0){
         Vector3 movement = new Vector3(0, 0, z);
+        movement = Camera.main.transform.TransformDirection(movement);
         transform.Translate(movement * speed * Time.deltaTime);
     }
 }
