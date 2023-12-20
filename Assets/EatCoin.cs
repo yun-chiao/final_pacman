@@ -11,6 +11,7 @@ public class EatCoin : MonoBehaviour
         {
             // 玩家碰到金幣，觸發消失效果
             Destroy(gameObject);
+            // TODO: 這邊傳送金幣被吃掉的音效
         }
     }
 }

@@ -18,7 +18,7 @@ public class Ghost_Movement : MonoBehaviour
         // 總是使物體的正面朝向相機
         transform.forward = Camera.main.transform.forward;
     }
-    
+
     IEnumerator RandomMovement()
     {
         while (true)

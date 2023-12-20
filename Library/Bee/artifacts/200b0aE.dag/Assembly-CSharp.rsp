@@ -355,6 +355,7 @@
 "Assets/Ghost_Movement.cs"
 "Assets/Movement.cs"
 "Assets/PlayerCameraRotation.cs"
+"Assets/SendInfo.cs"
 -langversion:9.0
 
 /deterministic
