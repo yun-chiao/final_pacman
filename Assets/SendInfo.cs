@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SendInfo : MonoBehaviour
 {
+    public OSC osc;
     public float customFixedDeltaTime = 0.2f;    // 設定多久拿到資料一次
     public Transform ghost; 
     public Transform[] coins;
@@ -15,6 +16,7 @@ public class SendInfo : MonoBehaviour
 
     void FixedUpdate()
     {
+        OscMessage message;
         if (ghost != null)
         {
             // 獲取鬼和玩家的相對位置
@@ -37,6 +39,13 @@ public class SendInfo : MonoBehaviour
                 float coin_pacman_angle = Vector3.SignedAngle(Camera.main.transform.forward, relativePosition, Vector3.up);
 
                 // TODO: 這邊傳送各個金幣與玩家的水平角度差以及直線距離 縱向應該就是0
+                // /source/1/aed 金幣1
+                message = new OscMessage();
+                message.address = "/source/1/aed";
+                message.values.Add(coin_pacman_angle);
+                message.values.Add(1);
+                message.values.Add(distance);
+                osc.Send(message);
                 // Debug.Log("Coin_pacman angle, distance: " + coin_pacman_angle + ", "+distance);
             }
             if (coin == null){
