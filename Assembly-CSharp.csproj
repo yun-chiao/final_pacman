@@ -65,8 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Ghost_Movement.cs" />
+    <Compile Include="Assets\OSC\OSC.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\PlayerCameraRotation.cs" />
+    <Compile Include="Assets\SendPositionOnOnMouseDown.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
