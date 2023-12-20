@@ -2182,7 +2182,7 @@ GameObject:
   - component: {fileID: 1776806091}
   - component: {fileID: 1776806090}
   m_Layer: 0
-  m_Name: OSC
+  m_Name: OSC-communicate with Max8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
