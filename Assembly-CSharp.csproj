@@ -68,6 +68,7 @@
     <Compile Include="Assets\OSC\OSC.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\PlayerCameraRotation.cs" />
+    <Compile Include="Assets\SendPosition.cs" />
     <Compile Include="Assets\SendPositionOnOnMouseDown.cs" />
   </ItemGroup>
   <ItemGroup>
