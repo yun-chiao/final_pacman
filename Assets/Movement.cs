@@ -9,13 +9,19 @@ public float speed = 2;
 public float step_span = 0.5f;
 private Rigidbody rb;
 private bool isMoving = false;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePositionY; // 凍結 Y 軸上下移動
         rb.freezeRotation = true;
         StartCoroutine(CheckMovement());
+        OscMessage message;
+        // TODO: 每0,5秒如果有在動就傳要腳步聲
+        Debug.Log("BGM is playing");
+        message = new OscMessage();
+        message.address = "/trigger/7";
+        message.values.Add(1);
+        osc.Send(message);
     }
     void Update()
     {

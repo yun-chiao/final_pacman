@@ -5,6 +5,11 @@ using UnityEngine;
 public class Main_camera : MonoBehaviour
 {
     // Start is called before the first frame update
+    void Awake()
+    {
+        
+    }
+    // Start is called before the first frame update
     void Start()
     {
         

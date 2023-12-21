@@ -355,6 +355,7 @@
 "Assets/Coin_rotate.cs"
 "Assets/EatCoin.cs"
 "Assets/Ghost_Movement.cs"
+"Assets/Main_camera.cs"
 "Assets/Movement.cs"
 "Assets/OSC/OSC.cs"
 "Assets/PlayerCameraRotation.cs"

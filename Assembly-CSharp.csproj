@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\SendInfo.cs" />
     <Compile Include="Assets\Ghost_Movement.cs" />
+    <Compile Include="Assets\Main_camera.cs" />
     <Compile Include="Assets\OSC\OSC.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\PlayerCameraRotation.cs" />
