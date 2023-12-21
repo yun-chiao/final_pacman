@@ -27,8 +27,10 @@ public class SendInfo : MonoBehaviour
             // Debug.Log("Ghost_pacman angle, distance: " + ghost_pacman_angle + ", "+distance);
         }
 
-        foreach (Transform coin in coins)
+        //foreach (Transform coin in coins)
+        for (int i=0;i<coins.Length;i++)
         {
+            Transform coin=coins[i];
             if (coin != null)
             {
                 // 獲取金幣相對於玩家的位置
@@ -41,7 +43,7 @@ public class SendInfo : MonoBehaviour
                 // TODO: 這邊傳送各個金幣與玩家的水平角度差以及直線距離 縱向應該就是0
                 // /source/1/aed 金幣1
                 message = new OscMessage();
-                message.address = "/source/1/aed";
+                message.address = string.Format("/source/{0}/aed",i+1);
                 message.values.Add(coin_pacman_angle);
                 message.values.Add(1);
                 message.values.Add(distance);
@@ -50,6 +52,7 @@ public class SendInfo : MonoBehaviour
             }
             if (coin == null){
                 // TODO: 如果這個金幣已經被吃掉了的話 看要傳什麼
+                // 我覺得是直接不傳
             }
         }
     }
