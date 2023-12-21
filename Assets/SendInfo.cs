@@ -25,6 +25,12 @@ public class SendInfo : MonoBehaviour
             float ghost_pacman_angle = Vector3.SignedAngle(Camera.main.transform.forward, relativePosition, Vector3.up);
             // TODO: 這邊傳送鬼與玩家的水平角度差以及直線距離 縱向應該就是0
             // Debug.Log("Ghost_pacman angle, distance: " + ghost_pacman_angle + ", "+distance);
+            message = new OscMessage();
+            message.address = "/source/5/aed";
+            message.values.Add(ghost_pacman_angle);
+            message.values.Add(1);
+            message.values.Add(distance);
+            osc.Send(message);
         }
 
         //foreach (Transform coin in coins)

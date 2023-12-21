@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
+public OSC osc;
 public float speed = 2;
 public float step_span = 0.5f;
 private Rigidbody rb;
@@ -43,8 +43,13 @@ private bool isMoving = false;
 
             if (isMoving)
             {
+                OscMessage message;
                 // TODO: 每0,5秒如果有在動就傳要腳步聲
                 Debug.Log("Player is moving");
+                message = new OscMessage();
+                message.address = "/trigger/6";
+                message.values.Add(1);
+                osc.Send(message);
             }
         }
     }
