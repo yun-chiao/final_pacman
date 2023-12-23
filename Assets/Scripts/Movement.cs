@@ -16,13 +16,6 @@ private bool isMoving = false;
         rb.constraints = RigidbodyConstraints.FreezePositionY; // 凍結 Y 軸上下移動
         rb.freezeRotation = true;
         StartCoroutine(CheckMovement());
-        OscMessage message;
-        // TODO: 每0,5秒如果有在動就傳要腳步聲
-        Debug.Log("BGM is playing");
-        message = new OscMessage();
-        message.address = "/trigger/7";
-        message.values.Add(1);
-        osc.Send(message);
     }
     void Update()
     {

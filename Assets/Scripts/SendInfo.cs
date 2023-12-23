@@ -5,15 +5,17 @@ using UnityEngine;
 public class SendInfo : MonoBehaviour
 {
     public OSC osc;
-    public float customFixedDeltaTime = 0.2f;    // 設定多久拿到資料一次
+    public float FrameRate = 30f;    // 設定資料更新頻率
+    public float CoinSoundInterval = 1f;
     public Transform ghost; 
     public Transform[] coins;
-
+    private int CoinSoundFrame;
+    private int CoinSoundFrame_counter=0;
     void Start()
     {
-        Time.fixedDeltaTime = customFixedDeltaTime;
+        Time.fixedDeltaTime = 1/FrameRate;
+        CoinSoundFrame = (int)(CoinSoundInterval*FrameRate);
     }
-
     void FixedUpdate()
     {
         OscMessage message;
@@ -61,6 +63,22 @@ public class SendInfo : MonoBehaviour
                 // 我覺得是直接不傳
             }
         }
+        //時間到了 傳金幣聲
+        if(CoinSoundFrame_counter%CoinSoundFrame==0)
+        {
+            CoinSoundFrame_counter=0;
+            for (int i=0;i<coins.Length;i++)
+            {
+                message = new OscMessage();
+                message.address = string.Format("/trigger/{0}",i+1);
+                message.values.Add(1);
+                osc.Send(message);
+            }
+        }
+        // relativePosition = ghost.position - transform.position;
+        // distance = Vector3.Distance(transform.position, ghost.position);
+        // ghost_pacman_angle = Vector3.SignedAngle(Camera.main.transform.forward, relativePosition, Vector3.up);
+        CoinSoundFrame_counter+=1;
     }
-
+    
 }

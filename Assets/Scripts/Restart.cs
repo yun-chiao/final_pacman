@@ -5,17 +5,15 @@ using UnityEngine.SceneManagement;
 public class Restart : MonoBehaviour
 {
     public string sceneToLoad;
-
     void Start()
     {
         Button button = GetComponent<Button>();
-
         button.onClick.AddListener(SwitchScene);
     }
 
     void SwitchScene()
     {
-        //TODO: ¶i¤J¹CÀ¸¶}©lµe­±
+        //TODO: é€²å…¥éŠæˆ²é–‹å§‹ç•«é¢
         SceneManager.LoadScene("start");
     }
 }

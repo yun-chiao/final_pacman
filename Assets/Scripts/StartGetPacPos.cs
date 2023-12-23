@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class StartGetPacPos : MonoBehaviour
 {
+    public OSC osc;
     public GameObject canvas;
     // Update is called once per frame
-    void Update()
+    public float FrameRate = 30f;    // è¨­å®šè³‡æ–™æ›´æ–°é »ç‡
+    void Start()
     {
-        //Todo: /source/7/aed float 1 float (bgm¦ì¸m ¤ô¥­¨¤«× Áa¦V¨¤«× ¶ZÂ÷, §ó·s³t«×0.1s)
-        //Angle: ¶}©lµe­±¤¤¤pºëÆF¦ì¸m©MÆ[²³§¨¨¤
+        Time.fixedDeltaTime = 1/FrameRate;
+    }
+    void FixedUpdate()
+    {
+        OscMessage message;
+        //Todo: /source/7/aed float 1 float (bgmä½ç½® æ°´å¹³è§’åº¦ ç¸±å‘è§’åº¦ è·é›¢, æ›´æ–°é€Ÿåº¦0.1s)
+        //Angle: é–‹å§‹ç•«é¢ä¸­å°ç²¾éˆä½ç½®å’Œè§€çœ¾å¤¾è§’
         float x = transform.position.x - 800 / 2;
         float z = 800 / 2;
-        float Angle = Mathf.Atan(x/z) * Mathf.Rad2Deg;
+        float Angle = Mathf.Atan2(z,x) * Mathf.Rad2Deg -90;
+        float distance = Mathf.Sqrt(z*z+x*x);
+        message = new OscMessage();
+        message.address = "/source/7/aed";
+        message.values.Add(Angle);
+        message.values.Add(1);
+        message.values.Add(distance);
+        osc.Send(message);
     }
 }
