@@ -65,6 +65,7 @@ private bool isMoving = false;
     {
         if (collision.gameObject.CompareTag("Ghost"))
         {
+            //Todo: 到遊戲結束畫面SS
             SceneManager.LoadScene("GameOver");
         }
         else if (collision.gameObject.CompareTag("Coin"))

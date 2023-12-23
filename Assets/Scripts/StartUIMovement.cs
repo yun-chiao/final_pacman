@@ -10,7 +10,7 @@ public class StartGhostMovement : MonoBehaviour
         Vector3 pos = transform.position;
         if(pos.x < 100)
         {
-            pos.x = 1132;
+            pos.x = 800;
             transform.position = pos;
         }
         else

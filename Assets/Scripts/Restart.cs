@@ -15,6 +15,7 @@ public class Restart : MonoBehaviour
 
     void SwitchScene()
     {
+        //TODO: 進入遊戲開始畫面
         SceneManager.LoadScene("start");
     }
 }

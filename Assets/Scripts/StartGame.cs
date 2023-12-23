@@ -15,6 +15,7 @@ public class StartGame : MonoBehaviour
 
     void SwitchScene()
     {
+        //TODO: 進入主遊戲畫面
         SceneManager.LoadScene("SampleScene");
     }
 }
