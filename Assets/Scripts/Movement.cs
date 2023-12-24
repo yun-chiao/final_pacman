@@ -68,6 +68,10 @@ private bool isMoving = false;
             message.address = "/trigger/7";
             message.values.Add(1);
             osc.Send(message);
+            message = new OscMessage();
+            message.address = "/trigger/9";
+            message.values.Add(1);
+            osc.Send(message);
             SceneManager.LoadScene("GameOver");
         }
         else if (collision.gameObject.CompareTag("Coin"))
