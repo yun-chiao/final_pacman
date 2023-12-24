@@ -426,7 +426,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 4235e29d7f225f397aff0c515161fa3a
+      Hash: fbe8b1f8d3fc92e2667a54dd29988c15
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CountScore

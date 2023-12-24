@@ -27,6 +27,11 @@ public class StartGame : MonoBehaviour
         message.address = "/trigger/7";
         message.values.Add(0);
         osc.Send(message);
+        //鬼聲音
+        message = new OscMessage();
+        message.address = "/trigger/5";
+        message.values.Add(1);
+        osc.Send(message);
         SceneManager.LoadScene("SampleScene");
     }
 }

@@ -59,6 +59,15 @@ private bool isMoving = false;
         if (collision.gameObject.CompareTag("Ghost"))
         {
             //Todo: 到遊戲結束畫面SS
+            OscMessage message;
+            message = new OscMessage();
+            message.address = "/trigger/5";
+            message.values.Add(0);
+            osc.Send(message);
+            message = new OscMessage();
+            message.address = "/trigger/7";
+            message.values.Add(1);
+            osc.Send(message);
             SceneManager.LoadScene("GameOver");
         }
         else if (collision.gameObject.CompareTag("Coin"))
