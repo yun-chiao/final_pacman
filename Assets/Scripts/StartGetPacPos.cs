@@ -22,7 +22,7 @@ public class StartGetPacPos : MonoBehaviour
         float z = canvasSize / 2;
         float Angle = Mathf.Atan2(z,x) * Mathf.Rad2Deg -90;
         Debug.Log(Angle);
-        float distance = Mathf.Sqrt(z*z+x*x);
+        float distance = Mathf.Sqrt(z*z+x*x)*10/(2*canvasSize);
         message = new OscMessage();
         message.address = "/source/7/aed";
         message.values.Add(Angle);
