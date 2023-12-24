@@ -5,7 +5,7 @@ using UnityEngine;
 public class SendInfo : MonoBehaviour
 {
     public OSC osc;
-    public float FrameRate = 30f;    // 設定資料更新頻率
+    public int FrameRate = 30;    // 設定資料更新頻率
     public float CoinSoundInterval = 1f;
     public Transform ghost; 
     public Transform[] coins;
@@ -13,7 +13,7 @@ public class SendInfo : MonoBehaviour
     private int CoinSoundFrame_counter=0;
     void Start()
     {
-        Time.fixedDeltaTime = 1/FrameRate;
+        Time.fixedDeltaTime = 1/(float)FrameRate;
         CoinSoundFrame = (int)(CoinSoundInterval*FrameRate);
     }
     void FixedUpdate()
