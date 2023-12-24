@@ -12,9 +12,9 @@ public class RandomCoin : MonoBehaviour
             //first coin
             
             createCoin(-24, -10, 10, 24, coin1);
-            createCoin(-22, -13, -10, -19, coin2);
-            createCoin(13, 22, 10, 24, coin3);
-            createCoin(13, 22, -24, -10, coin4);
+            createCoin(-24, -10, -20, -10, coin2);
+            createCoin(10, 24, 10, 24, coin3);
+            createCoin(10, 24, -20, -10, coin4);
 
         }
         void createCoin(int x1, int x2, int z1, int z2, GameObject coin)
