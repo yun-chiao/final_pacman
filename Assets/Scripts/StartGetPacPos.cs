@@ -19,9 +19,9 @@ public class StartGetPacPos : MonoBehaviour
         //Todo: /source/7/aed float 1 float (bgm位置 水平角度 縱向角度 距離, 更新速度0.1s)
         //Angle: 開始畫面中小精靈位置和觀眾夾角
         float x = transform.position.x - canvasSize / 2;
-        float z = canvasSize / 2;
+        float z = canvasSize / 4;
         float Angle = Mathf.Atan2(z,x) * Mathf.Rad2Deg -90;
-        float distance = Mathf.Sqrt(z*z+x*x)*10/(2*canvasSize);
+        float distance = Mathf.Sqrt(z*z+x*x)*4/(2*canvasSize);
         message = new OscMessage();
         message.address = "/source/7/aed";
         message.values.Add(-Angle);

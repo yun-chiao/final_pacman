@@ -7,6 +7,7 @@ public class SendInfo : MonoBehaviour
     public OSC osc;
     public int FrameRate = 30;    // 設定資料更新頻率
     public float CoinSoundInterval = 1f;
+    public float DistanceMultiplier = 1f;
     public Transform ghost; 
     public Transform[] coins;
     private int CoinSoundFrame;
@@ -23,7 +24,7 @@ public class SendInfo : MonoBehaviour
         {
             // 獲取鬼和玩家的相對位置
             Vector3 relativePosition = ghost.position - transform.position;
-            float distance = Vector3.Distance(transform.position, ghost.position);
+            float distance = Vector3.Distance(transform.position, ghost.position)/DistanceMultiplier;
             float ghost_pacman_angle = Vector3.SignedAngle(Camera.main.transform.forward, relativePosition, Vector3.up);
             // TODO: 這邊傳送鬼與玩家的水平角度差以及直線距離 縱向應該就是0
             // Debug.Log("Ghost_pacman angle, distance: " + ghost_pacman_angle + ", "+distance);
@@ -55,7 +56,7 @@ public class SendInfo : MonoBehaviour
             Transform coin=coins[coin_nearest_id];
             // 獲取金幣相對於玩家的位置
             Vector3 relativePosition = coin.position - transform.position;
-            float distance = Vector3.Distance(transform.position, coin.position);
+            float distance = Vector3.Distance(transform.position, coin.position)/DistanceMultiplier;
 
             // 計算金幣相對於正面的角度差
             float coin_pacman_angle = Vector3.SignedAngle(Camera.main.transform.forward, relativePosition, Vector3.up);
